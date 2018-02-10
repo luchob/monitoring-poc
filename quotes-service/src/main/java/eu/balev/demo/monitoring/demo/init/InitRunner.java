@@ -6,9 +6,9 @@ import eu.balev.demo.monitoring.demo.domain.AuthorEntity;
 import eu.balev.demo.monitoring.demo.domain.AuthorRepository;
 import eu.balev.demo.monitoring.demo.domain.QuoteEntity;
 import eu.balev.demo.monitoring.demo.domain.QuoteRepository;
-import eu.balev.demo.monitoring.demo.service.QuoteService;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.io.ClassPathResource;
@@ -52,7 +52,7 @@ public class InitRunner implements CommandLineRunner {
     Optional<AuthorEntity> authorEntityOpt = authorRepository.findByName(quote.getQuoteAuthor());
     AuthorEntity authorEntity;
     if (!authorEntityOpt.isPresent()) {
-      authorEntity =  asAuthor(quote.getQuoteAuthor());
+      authorEntity = asAuthor(quote.getQuoteAuthor());
       authorRepository.save(authorEntity);
     } else {
       authorEntity = authorEntityOpt.get();
@@ -71,6 +71,44 @@ public class InitRunner implements CommandLineRunner {
     newAuthorEntity.setName(authorName);
     return newAuthorEntity;
   }
-}
 
+  /**
+   * A quotes POJO, used to read the source of wisdom.
+   */
+  private static class Quote {
+
+    private String quoteText, quoteAuthor;
+
+    String getQuoteAuthor() {
+      return quoteAuthor;
+    }
+
+    Quote setQuoteAuthor(String quoteAuthor) {
+      this.quoteAuthor = quoteAuthor;
+      return this;
+    }
+
+    String getQuoteText() {
+      return quoteText;
+    }
+
+    Quote setQuoteText(String quoteText) {
+      Objects.requireNonNull(quoteText, "Quote text cannot be null!");
+
+      this.quoteText = quoteText;
+      return this;
+    }
+
+    public String toString() {
+      StringBuilder sb = new StringBuilder();
+
+      sb.append(getQuoteText());
+      sb.append(" [");
+      sb.append(getQuoteAuthor() != null ? getQuoteAuthor() : "Unknown");
+      sb.append("]");
+
+      return sb.toString();
+    }
+  }
+}
 
