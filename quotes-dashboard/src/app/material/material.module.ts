@@ -1,16 +1,22 @@
-import {NgModule} from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatCardModule} from '@angular/material/card';
+import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
   imports: [
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatIconModule
   ],
   exports: [
     MatCardModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatExpansionModule,
+    MatIconModule
   ],
   declarations: []
 })
