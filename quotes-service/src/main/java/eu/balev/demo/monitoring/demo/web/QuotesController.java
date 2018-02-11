@@ -4,12 +4,14 @@ import eu.balev.demo.monitoring.demo.domain.QuoteEntity;
 import eu.balev.demo.monitoring.demo.dto.QuoteDTO;
 import eu.balev.demo.monitoring.demo.service.QuoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class QuotesController {
 
   @Autowired

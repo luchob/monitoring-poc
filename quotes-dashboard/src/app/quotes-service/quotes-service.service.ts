@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class QuotesServiceService {
 
-  randomQuoteUrl = 'api/random-quote';
+  randomQuoteUrl = 'http://localhost:8080/api/random-quote';
 
   constructor(private http: HttpClient) { }
 

@@ -49,10 +49,16 @@ public class InitRunner implements CommandLineRunner {
 
   private void processQuote(Quote quote) {
 
-    Optional<AuthorEntity> authorEntityOpt = authorRepository.findByName(quote.getQuoteAuthor());
+    String author = quote.getQuoteAuthor();
+    if (author == null || author.isEmpty()) {
+      author = "Anonymous";
+    }
+
+    Optional<AuthorEntity> authorEntityOpt = authorRepository.findByName(author);
+
     AuthorEntity authorEntity;
     if (!authorEntityOpt.isPresent()) {
-      authorEntity = asAuthor(quote.getQuoteAuthor());
+      authorEntity = asAuthor(author);
       authorRepository.save(authorEntity);
     } else {
       authorEntity = authorEntityOpt.get();
