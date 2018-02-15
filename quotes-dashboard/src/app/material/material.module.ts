@@ -3,6 +3,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
 
 
 @NgModule({
@@ -10,13 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
     MatCardModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     MatCardModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   declarations: []
 })

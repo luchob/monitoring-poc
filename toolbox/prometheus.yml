@@ -1,0 +1,39 @@
+# check sample config here
+# https://github.com/prometheus/prometheus/blob/release-2.1/config/testdata/conf.good.yml
+
+# my global config
+global:
+  scrape_interval:     15s
+  evaluation_interval: 30s
+
+# TODO
+#rule_files:
+#- "first.rules"
+#- "my/*.rules"
+
+scrape_configs:
+- job_name: quote-service
+
+  honor_labels: true
+  # scrape_interval is defined by the configured global (15s).
+  # scrape_timeout is defined by the global default (10s).
+
+  # metrics_path defaults to '/metrics'
+  # scheme defaults to 'http'.
+
+  metrics_path: /prometheus
+  scheme: http
+
+  static_configs:
+  - targets: ['docker.for.mac.localhost:8080']
+    labels:
+      my:   label
+
+#alerting:
+#  alertmanagers:
+#  - scheme: https
+#    static_configs:
+#    - targets:
+#      - "1.2.3.4:9093"
+#      - "1.2.3.5:9093"
+#      - "1.2.3.6:9093"

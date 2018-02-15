@@ -19,13 +19,17 @@ export class DashboardComponent implements OnInit {
     this.refreshQuote();
   }
 
-  refreshQuote() {
+  private refreshQuote() {
     this.quoteService.getRandomQuote().subscribe(data => {
 
       this.quoteDetailComponent.quoteText = data['text'];
       this.quoteDetailComponent.quoteAuthor = data['author'];
     }
     );
+  }
+
+  onRefresh() {
+    this.refreshQuote();
   }
 
 }
