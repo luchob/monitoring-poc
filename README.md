@@ -3,10 +3,10 @@
 This project contains a small application which will serve as a foundation for an _eventual_ (if approved) session at jPriome.io, May 2018. 
 
 ---
-**Current Status**: The project is under development and is the foundation for initial CFP. 
+**Current Status**: The project is under development and is used for the CFP. 
 Intensive improvements are expected after mid March of 2018 . 
 The session agenda may be a subject of minor improvements. 
-Any suggestions and ideas are welcome.
+Any contributions and opinions are welcome.
 
 # Session description and agenda plan
 
