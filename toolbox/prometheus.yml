@@ -26,8 +26,6 @@ scrape_configs:
 
   static_configs:
   - targets: ['docker.for.mac.localhost:8080']
-    labels:
-      my:   label
 
 #alerting:
 #  alertmanagers:
