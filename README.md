@@ -38,9 +38,9 @@ so that anyone with a Docker installed will be able to get up running very fast,
 
   * Showing some real dashboards that we have built. 
   * Mentioning the hardware that we use for visualization
-  ** TV sets
-  ** Intel NUC
-  ** frame and final appereance
+    * TV sets
+    * Intel NUC
+    * frame and final appereance
 
 ### Q&A:
 
