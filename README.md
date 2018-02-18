@@ -30,7 +30,7 @@ so that anyone with a Docker installed will be able to get up running very fast,
   * Spring/Prometheus integration - API-s.
   * The role of Spring Actuator.
   * logging with Logback.
-  * Quick introduction of small and simple Angular UI dashboard reading from the source of wisdom. This part will be utterly neglected.
+  * Quick introduction of small and simple Angular UI dashboard reading from the source of wisdom (alternative to postman). This part will be utterly neglected.
   * Integrating with Prometheus and Grafana.
   * Building a sample dashboard showing some metrics coming from the Spring service.
 
@@ -45,3 +45,37 @@ so that anyone with a Docker installed will be able to get up running very fast,
 ### Q&A:
 
   * A small time slot for Q&A.
+  
+# Overview
+
+## Architecture
+
+The next figure gives an overview of the final sample setup.
+
+![image](https://user-images.githubusercontent.com/10339738/36351750-17206544-14b7-11e8-9397-a0b0c3bbdca3.png)
+
+Explanation:
+
+  * _App1_, _App2_, _AppN_ are the monitored applications/instances;
+  * _Prometheus Server_ is the server that pulls metrics data that is later visualized;
+  * _Alert manager_ is the tool that is sending alerts when something goes wrong - e.g. there are errors in the error log;
+  * _Grafana_ is the tool which provides a visually pleasing representation of the collected metrics. It uses the query language of Prometheus.
+
+## Visual representation
+
+The next image shows a few gadget displaying metrics in Grafana.
+
+![image](https://user-images.githubusercontent.com/10339738/36351870-63c99874-14b8-11e8-8658-7ecf339c0c26.png)
+
+## Hardware setup
+
+This image shows the hardware that we've situated in our team rooms.
+
+![image](https://user-images.githubusercontent.com/10339738/36351906-2eb3e2ec-14b9-11e8-9c69-0b45cad100a2.png)
+
+## Notifications
+
+A sample HipChat notification received due to an error logged into the logs of the service.
+
+![image](https://user-images.githubusercontent.com/10339738/36351942-94252762-14b9-11e8-8fe6-731f7c309785.png)
+
