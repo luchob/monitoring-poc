@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Represents a quote. A quote is a piece of wisdom
+ * authored by someone.
+ */
 @Entity
 @Table(name = "quote")
 public class QuoteEntity {

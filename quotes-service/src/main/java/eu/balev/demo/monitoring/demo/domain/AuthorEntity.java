@@ -12,6 +12,27 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * Represents an author of a quote (piece of wisdom). For example:
+ *
+ *
+ * <blockquote>
+ *   No alibi will save you from accepting the responsibility.
+ *   Napoleon Hill
+ * </blockquote>
+ *
+ * <blockquote>
+ *   Happiness is found in doing, not merely possessing.
+ *   Napoleon Hill
+ * </blockquote>
+ *
+ * <blockquote>
+ *    No snowflake in an avalanche ever feels responsible.
+ *    Voltaire
+ * </blockquote>
+ *
+ * An author may have authored many quotes.
+ */
 @Entity
 @Table(name = "author")
 public class AuthorEntity {
@@ -30,6 +51,11 @@ public class AuthorEntity {
     this.id = id;
   }
 
+  /**
+   * Returns the names(s) of the author.
+   *
+   * @return the names(s) of the author.
+   */
   @Column(name="name", unique=true)
   public String getName() {
     return name;
@@ -39,6 +65,11 @@ public class AuthorEntity {
     this.name = name;
   }
 
+  /**
+   * Returns a list with quotes for the given author. Cannot be null.
+   *
+   * @return
+   */
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "author_id")
   public List<QuoteEntity> getQuotes() {

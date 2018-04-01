@@ -19,7 +19,7 @@ public class QuotesController {
       Counter.
           build().
           name("quoteservice_randomquotes_total").
-          help("Total random quotes.").
+          help("Totally served random quotes.").
           register();
 
 
