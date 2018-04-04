@@ -1,19 +1,28 @@
 package eu.balev.demo.monitoring.demo.init;
 
-import io.prometheus.client.Counter;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Counters implements Runnable {
 
-  static final Counter cnt =
-      Counter.
-          build().
-          name("demoservice_heart_beat").
-          labelNames("beat").
-          help("Increases by 1, starts at 1").
-          register();
+  private static final Logger LOGGER = LoggerFactory.getLogger(Counters.class);
+  //
+  final Counter beat1, beat2;
 
-  Counters() {
+  Counters(MeterRegistry meterRegistry) {
+    beat1 = Counter
+        .builder("demoservice_heart_beat")
+        .description("a simple counter")
+        .tags("beat", "beat1")
+        .register(meterRegistry);
 
+    beat2 = Counter
+        .builder("demoservice_heart_beat")
+        .description("a simple faster counter")
+        .tags("beat", "beat2")
+        .register(meterRegistry);
   }
 
   @Override
@@ -21,10 +30,11 @@ public class Counters implements Runnable {
     while(true) {
       try {
         Thread.sleep(1000);
-        cnt.labels("beat_one").inc();
-        cnt.labels("beat_two").inc(0.5);
+        beat1.increment(0.5);
+        beat2.increment(1);
       } catch (InterruptedException e) {
         Thread.interrupted();
+        LOGGER.error("S.o. interrupted me and I'll go away :( Bye!", e);
         return;
       }
     }
