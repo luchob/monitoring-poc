@@ -7,4 +7,4 @@ This project contains few small applications which will serve as a a foundation 
 
 # Documentation
 
-The complete documentation part is available in the project's wiki.
+The complete documentation part is available in the project's [wiki](https://github.com/luchob/monitoring-poc/wiki).
