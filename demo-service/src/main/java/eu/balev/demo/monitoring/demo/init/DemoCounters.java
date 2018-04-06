@@ -5,13 +5,21 @@ import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Counters implements Runnable {
+/**
+ * Defines two sample counters belonging to the same
+ * metrics named <pre>demoservice_heart_beat</pre>.
+ *
+ * The first counter is labelled with <pre>beat=beat2</pre>
+ * and the second one is labelled with <pre>beat=beat2</pre>.
+ * Both form two time series.
+ */
+public class DemoCounters implements Runnable {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Counters.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(DemoCounters.class);
   //
-  final Counter beat1, beat2;
+  private final Counter beat1, beat2;
 
-  Counters(MeterRegistry meterRegistry) {
+  DemoCounters(MeterRegistry meterRegistry) {
     beat1 = Counter
         .builder("demoservice_heart_beat")
         .description("a simple counter")
@@ -33,7 +41,7 @@ public class Counters implements Runnable {
         beat1.increment(0.5);
         beat2.increment(1);
       } catch (InterruptedException e) {
-        Thread.interrupted();
+        Thread.currentThread().interrupt();
         LOGGER.error("S.o. interrupted me and I'll go away :( Bye!", e);
         return;
       }
