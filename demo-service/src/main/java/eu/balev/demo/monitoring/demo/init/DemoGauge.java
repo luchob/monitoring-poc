@@ -1,6 +1,5 @@
 package eu.balev.demo.monitoring.demo.init;
 
-import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
 import java.util.function.ToDoubleFunction;
@@ -13,7 +12,7 @@ class DemoGauge {
 
   DemoGauge(MeterRegistry meterRegistry) {
     Gauge
-        .builder("demoservice gauge", new Object(), new Oscillator())
+        .builder("demoservice_gauge", new Object(), new Oscillator())
         .description("a simple gauge")
         .register(meterRegistry);
   }
@@ -31,7 +30,9 @@ class DemoGauge {
       if (Math.abs(currentValue) >= AMPLITUDE) {
         increase = !increase;
       }
-      return Math.abs(currentValue);
+      int result =  Math.abs(currentValue);
+      LOGGER.info("The current value of the gauge is {}", result);
+      return result;
     }
   }
 }

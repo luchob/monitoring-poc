@@ -1,5 +1,6 @@
 package eu.balev.demo.monitoring.demo;
 
+import java.util.UUID;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
