@@ -11,8 +11,13 @@ class DemoGauge {
   private static final Logger LOGGER = LoggerFactory.getLogger(DemoGauge.class);
 
   DemoGauge(MeterRegistry meterRegistry) {
+    //All of the different forms of creating a gauge maintain
+    //only a weak reference to the object being observed,
+    //so as not to prevent garbage collection of the object.
+
+    Oscillator oscillator = new Oscillator();
     Gauge
-        .builder("demoservice_gauge", new Object(), new Oscillator())
+        .builder("demoservice_gauge", oscillator, oscillator)
         .description("a simple gauge")
         .register(meterRegistry);
   }
@@ -31,7 +36,6 @@ class DemoGauge {
         increase = !increase;
       }
       int result =  Math.abs(currentValue);
-      LOGGER.info("The current value of the gauge is {}", result);
       return result;
     }
   }

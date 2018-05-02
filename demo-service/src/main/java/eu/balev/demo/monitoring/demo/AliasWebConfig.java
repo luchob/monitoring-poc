@@ -12,6 +12,7 @@ public class AliasWebConfig implements WebMvcConfigurer {
   @Override
   public void addViewControllers(ViewControllerRegistry registry) {
     //well, that's just for the compatibility with the toolbox...
+    //do not pay too much attention to it
     registry.addViewController("/prometheus").setViewName("forward:/actuator/prometheus");
   }
 }
