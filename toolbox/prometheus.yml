@@ -6,10 +6,9 @@ global:
   scrape_interval:     15s
   evaluation_interval: 30s
 
-# TODO
-#rule_files:
-#- "first.rules"
-#- "my/*.rules"
+# Alert manager configuration
+rule_files:
+- /etc/prometheus/sample.rule
 
 scrape_configs:
 - job_name: quote-service

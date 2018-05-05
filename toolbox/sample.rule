@@ -1,0 +1,10 @@
+groups:
+- name: jprime
+  rules:
+  - alert: DemoServiceErrors
+    expr: sum(increase(logback_events_total{level="error"}[15m])) > 0
+    labels:
+      service: demo_service
+      recover: false
+    annotations:
+      summary: There are some new errors in the logs of the demo service!"
