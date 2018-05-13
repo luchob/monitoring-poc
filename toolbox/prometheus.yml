@@ -3,8 +3,8 @@
 
 # my global config
 global:
-  scrape_interval:     15s
-  evaluation_interval: 30s
+  scrape_interval:     5s
+  evaluation_interval: 15s
 
 # Alert manager configuration
 rule_files:
@@ -26,11 +26,10 @@ scrape_configs:
   static_configs:
   - targets: ['docker.for.mac.localhost:8080']
 
-#alerting:
-#  alertmanagers:
-#  - scheme: https
-#    static_configs:
-#    - targets:
-#      - "1.2.3.4:9093"
-#      - "1.2.3.5:9093"
-#      - "1.2.3.6:9093"
+#Configuration of the alert manager
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+    - targets:
+      - "docker.for.mac.localhost:9093"

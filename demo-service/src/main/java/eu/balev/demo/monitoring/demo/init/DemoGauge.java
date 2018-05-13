@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 
 class DemoGauge {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(DemoGauge.class);
-
   DemoGauge(MeterRegistry meterRegistry) {
     //All of the different forms of creating a gauge maintain
     //only a weak reference to the object being observed,
