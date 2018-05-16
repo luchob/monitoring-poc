@@ -24,7 +24,7 @@ scrape_configs:
   scheme: http
 
   static_configs:
-  - targets: ['docker.for.mac.localhost:8080']
+  - targets: ['host.docker.internal:8080']
 
 #Configuration of the alert manager
 alerting:
@@ -32,4 +32,4 @@ alerting:
   - scheme: http
     static_configs:
     - targets:
-      - "docker.for.mac.localhost:9093"
+      - "host.docker.internal:9093"

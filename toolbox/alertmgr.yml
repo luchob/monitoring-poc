@@ -46,9 +46,9 @@ route:
 receivers:
 - name: 'catch-them-all'
   webhook_configs:
-    - url: 'http://docker.for.mac.localhost:8080/api/alert/all'
+    - url: 'http://host.docker.internal:8080/api/alert/all'
       send_resolved: false
 - name: 'jprime'
   webhook_configs:
-  - url: 'http://docker.for.mac.localhost:8080/api/alert/jprime'
+  - url: 'http://host.docker.internal:8080/api/alert/jprime'
     send_resolved: false
