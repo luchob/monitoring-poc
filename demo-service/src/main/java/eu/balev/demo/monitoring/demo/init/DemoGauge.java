@@ -3,8 +3,6 @@ package eu.balev.demo.monitoring.demo.init;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
 import java.util.function.ToDoubleFunction;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 class DemoGauge {
 

@@ -15,6 +15,7 @@ public class InitRunner implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     (new Thread(new DemoCounters(meterRegistry))).start();
+    (new Thread(new DemoDistribution(meterRegistry))).start();
     new DemoGauge(meterRegistry);
   }
 }
