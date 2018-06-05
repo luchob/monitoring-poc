@@ -1,9 +1,9 @@
 # Welcome
 
-This project contains a small demo application which will serve as a a foundation for [my talk](https://jprime.io/agenda/76) at the [jPrime](https://jprime.io) conference in Sofia, May 2018. The topic of the lecture is _Monitoring applications with Prometheus, Grafana and Alert Manager_.
+This project contains a small demo application which served as a a foundation for [my talk](https://jprime.io/agenda/76) at the [jPrime](https://jprime.io) conference in Sofia, May 2018. The topic of the lecture is _Monitoring applications with Prometheus, Grafana and Alert Manager_.
 
 ---
-**Current Status**: The project is under construction now, it will be finalized after mid May and abandoned on 1st of June. Any contributions and opinions are welcome.
+**Current Status**: The conference is over and the project is dead now.
 
 # Documentation
 
