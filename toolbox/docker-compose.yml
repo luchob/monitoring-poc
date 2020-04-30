@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   promtool:
-    image: prom/prometheus:v2.2.1
+    image: prom/prometheus:v2.17.2
     ports:
       - 9090:9090
     volumes:
@@ -12,14 +12,14 @@ services:
         source: ./sample.rule
         target: /etc/prometheus/sample.rule
   grafana:
-    image: grafana/grafana:5.1.0
+    image: grafana/grafana:6.7.3
     ports:
       - 3000:3000
   alertmanager:
-    image: prom/alertmanager:v0.14.0
+    image: prom/alertmanager:v0.20.0
     ports:
       - 9093:9093
     volumes:
       - type: bind
         source: ./alertmgr.yml
-        target: /etc/alertmanager/config.yml
+        target: /etc/alertmanager/alertmanager.yml
